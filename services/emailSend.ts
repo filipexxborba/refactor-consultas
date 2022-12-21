@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+require("dotenv").config();
 
 export const emailSend = async (
    destino: string,
@@ -10,8 +11,8 @@ export const emailSend = async (
       port: 465,
       secure: true, // true for 465, false for other ports
       auth: {
-         user: "etiquetas@panoramahomecenter.com.br",
-         pass: "Panorama@@2021",
+         user: process.env.EMAIL_ADDRESS,
+         pass: process.env.EMAIL_PASSWORD,
       },
    });
 
